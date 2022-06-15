@@ -1,0 +1,56 @@
+.product-discount {
+	color: white;
+	font-weight: bold;
+	background-color: red;
+}
+.product-price {
+	text-decoration: line-through;
+}
+.product-final-price {
+	color: red;
+	font-weight: bold;
+}
+.product-card {
+	height: 380px;
+	width: 220px;
+	/* CHANGE dimensitions if to much white space */
+	display: flex;
+	gap: 20px;
+	flex-direction: column;
+	/* justify-content: space-evenly; */
+	border: 1px solid gainsboro;
+}
+.product-thumbnail {
+	margin: 10px;
+}
+.card-top {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+.product-discount {
+	position: absolute;
+	top: 5px;
+	right: 0;
+	border-radius: 4px;
+	padding: 4px;
+	font-size: 12px;
+	transform: rotate(30deg);
+}
+.product-prices-box {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+.product-final-price {
+	font-size: 1.1em;
+}
+.product-title {
+	text-align: center;
+	padding: 4px;
+}
+.product-add {
+	display: flex;
+	justify-content: center;
+	margin: 12px;
+}
