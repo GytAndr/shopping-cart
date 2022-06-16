@@ -1,10 +1,10 @@
 const Navbar = () => {
 	return (
-		<div>
+		<nav>
 			<a href="/">Home</a>
 			<a href="/shop">Shop</a>
 			<a href="/cart">Cart</a>
-		</div>
+		</nav>
 	);
 };
 export default Navbar;

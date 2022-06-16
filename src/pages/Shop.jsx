@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import ProductCard from '../Components/ProductCard';
+import '../Styles/Shop.css';
 const Shop = () => {
 	const [products, setProducts] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
@@ -23,12 +24,10 @@ const Shop = () => {
 	}
 	//else map trough array and display products.
 	return (
-		<div>
-			<h3>Shop page</h3>
+		<div className="products-wrapper">
 			{products.map((product) => {
 				return <ProductCard data={product} key={product.id} />;
 			})}
-			;
 		</div>
 	);
 };
