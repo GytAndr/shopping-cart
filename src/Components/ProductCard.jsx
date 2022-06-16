@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../Styles/ProductCard.css';
 export default function ProductCard({
-	data: { title, price, thumbnail, discountPercentage },
+	data: { id, title, price, thumbnail, discountPercentage },
 }) {
 	const discountedPrice = price - (price * discountPercentage) / 100;
 	const [hovered, setHovered] = useState(false);
@@ -34,6 +35,9 @@ export default function ProductCard({
 			{hovered ? (
 				<div className="product-add">
 					<button className="add-btn">Į krepšelį</button>
+					<Link to={`${id}`}>
+						<button>To product page</button>
+					</Link>
 				</div>
 			) : null}
 		</div>

@@ -8,7 +8,7 @@ const Shop = () => {
 	useEffect(() => {
 		async function FechProductList() {
 			const response = await fetch(
-				'https://dummyjson.com/products?limit=10&skip=0'
+				'https://dummyjson.com/products?limit=100&skip=0'
 			);
 			const json = await response.json();
 			//put response into state
