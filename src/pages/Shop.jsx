@@ -1,22 +1,34 @@
 import { useEffect, useState } from 'react';
 import ProductCard from '../Components/ProductCard';
 const Shop = () => {
-	const [product, setProducts] = useState();
+	const [products, setProducts] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
-	async function FechProductData() {
-		const response = await fetch('https://dummyjson.com/products/1');
-		const resJson = await response.json();
-		setProducts(resJson);
-		setIsLoading(false);
-	}
 	useEffect(() => {
-		FechProductData();
+		async function FechProductList() {
+			const response = await fetch(
+				'https://dummyjson.com/products?limit=10&skip=0'
+			);
+			const json = await response.json();
+			//put response into state
+			setProducts(json.products);
+			//switch loading state
+			setIsLoading(false);
+		}
+		FechProductList();
 	}, []);
+	//if resposne was not received, show loading...
+	if (isLoading) {
+		return <p>Loading...</p>;
+	}
+	//else map trough array and display products.
 	return (
 		<div>
 			<h3>Shop page</h3>
-			{isLoading ? <p>Loading...</p> : <ProductCard data={product} />}
+			{products.map((product) => {
+				return <ProductCard data={product} key={product.id} />;
+			})}
+			;
 		</div>
 	);
 };

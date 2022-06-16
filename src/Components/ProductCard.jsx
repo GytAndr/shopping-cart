@@ -17,7 +17,12 @@ export default function ProductCard({
 			style={hovered ? { transform: 'scale(1.05)' } : {}}
 		>
 			<div className="card-top">
-				<img className="product-thumbnail" src={thumbnail} alt="thumbnail" />
+				<img
+					className="product-thumbnail"
+					src={thumbnail}
+					alt="thumbnail"
+					title={title}
+				/>
 				<div className="product-discount">-{discountPercentage}%</div>
 			</div>
 			<p className="product-title">{title}</p>
