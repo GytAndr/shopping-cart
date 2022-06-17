@@ -5,7 +5,7 @@ import { Home } from './pages/Home';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
 import Navbar from './Components/Navbar';
-import Product from './pages/Product';
+import ProductPage from './pages/ProductPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,7 +16,7 @@ root.render(
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/shop" element={<Shop />} />
-				<Route path="/shop/:id" element={<Product />} />
+				<Route path="/shop/:id" element={<ProductPage />} />
 				<Route path="/cart" element={<Cart />} />
 			</Routes>
 		</BrowserRouter>
