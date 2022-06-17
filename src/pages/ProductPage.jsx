@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
+import '../Styles/ProductPage.css';
 
 function Product() {
 	//takes id from url and later used to fetch data
@@ -22,26 +24,67 @@ function Product() {
 		}
 		FetchProduct();
 	}, []);
+
+	//image slider logics
+	const [currentImg, setCurrentImg] = useState(0);
+	const nextSlide = () => {
+		setCurrentImg(
+			currentImg === product.images.length - 1 ? 0 : currentImg + 1
+		);
+	};
+	const prevSlide = () => {
+		setCurrentImg(
+			currentImg === 0 ? product.images.length - 1 : currentImg - 1
+		);
+	};
+
 	//render loading while data is not received
 	if (isLoading) {
 		return <p>Loading...</p>;
 	}
 	return (
-		<div>
-			<p>id: {product.id}</p>
-			<p>title: {product.title}</p>
-			<p>description: {product.description}</p>
-			<p>price: {product.price} €</p>
-			{product.images.map((image) => {
-				return <img src={image} />;
-			})}
-			<button
-				onClick={() => {
-					navigate('/shop');
-				}}
-			>
-				Back to Shop
-			</button>
+		<div className="product-page-container">
+			<div className="image-slider">
+				<FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
+				<FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+				{product.images.map((image, index) => {
+					return (
+						<div
+							className={index === currentImg ? 'slide active' : 'slide'}
+							key={index}
+						>
+							{index === currentImg && (
+								<img
+									key={index}
+									src={image}
+									alt=""
+									className="product-page--image"
+								/>
+							)}
+						</div>
+					);
+				})}
+			</div>
+			<div className="product-page-info">
+				<h2>{product.title}</h2>
+				<p className="product-page--discounted">
+					{(
+						product.price -
+						(product.price * product.discountPercentage) / 100
+					).toFixed(2)}
+					€
+				</p>
+				<p>description: {product.description}</p>
+				<p>{product.price} €</p>
+				<button>Add To Cart</button>
+				<button
+					onClick={() => {
+						navigate('/shop');
+					}}
+				>
+					Go Back
+				</button>
+			</div>
 		</div>
 	);
 }
