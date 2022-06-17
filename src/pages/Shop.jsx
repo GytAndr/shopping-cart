@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import ProductCard from '../Components/ProductCard';
 import '../Styles/Shop.css';
-const Shop = () => {
+const Shop = ({ add }) => {
 	const [products, setProducts] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -26,7 +26,7 @@ const Shop = () => {
 	return (
 		<div className="products-wrapper">
 			{products.map((product) => {
-				return <ProductCard data={product} key={product.id} />;
+				return <ProductCard data={product} key={product.id} add={add} />;
 			})}
 		</div>
 	);

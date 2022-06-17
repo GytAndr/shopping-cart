@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../Styles/ProductCard.css';
 import { CgShoppingCart } from 'react-icons/cg';
 export default function ProductCard({
+	add,
 	data: { id, title, price, thumbnail, discountPercentage },
 }) {
 	const discountedPrice = price - (price * discountPercentage) / 100;
@@ -37,7 +38,12 @@ export default function ProductCard({
 			</div>
 			{hovered ? (
 				<div className="product-add">
-					<button className="product-btn">
+					<button
+						className="product-btn"
+						onClick={() =>
+							add({ id, title, price, thumbnail, discountPercentage })
+						}
+					>
 						<CgShoppingCart className="product-page--cart-icon" />
 						Add To Cart
 					</button>

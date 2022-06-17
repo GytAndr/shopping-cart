@@ -5,7 +5,7 @@ import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
 import { CgShoppingCart } from 'react-icons/cg';
 import '../Styles/ProductPage.css';
 
-function Product() {
+function Product({ add }) {
 	//takes id from url and later used to fetch data
 	let { id } = useParams();
 	let navigate = useNavigate();
@@ -79,7 +79,7 @@ function Product() {
 					</p>
 				</div>
 				<p>{product.description}</p>
-				<button className="product-page--btn">
+				<button className="product-page--btn" onClick={() => add(product)}>
 					<CgShoppingCart className="product-page--cart-icon" />
 					Add To Cart
 				</button>
