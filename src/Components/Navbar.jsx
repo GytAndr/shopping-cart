@@ -1,11 +1,12 @@
 import '../Styles/Navbar.css';
-import { Link } from 'react-router-dom';
-const Navbar = () => {
+
+const Navbar = ({ cart }) => {
 	return (
 		<nav>
 			<a href="/">About</a>
 			<a href="/shop">Shop</a>
 			<a href="/cart">Cart</a>
+			<p>items in cart {cart}</p>
 		</nav>
 	);
 };
