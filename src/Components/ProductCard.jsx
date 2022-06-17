@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Styles/ProductCard.css';
+import { CgShoppingCart } from 'react-icons/cg';
 export default function ProductCard({
 	data: { id, title, price, thumbnail, discountPercentage },
 }) {
@@ -18,12 +19,14 @@ export default function ProductCard({
 			style={hovered ? { transform: 'scale(1.05)' } : {}}
 		>
 			<div className="card-top">
-				<img
-					className="product-thumbnail"
-					src={thumbnail}
-					alt="thumbnail"
-					title={title}
-				/>
+				<Link to={`${id}`}>
+					<img
+						className="product-thumbnail"
+						src={thumbnail}
+						alt="thumbnail"
+						title={title}
+					/>
+				</Link>
 				<div className="product-discount">-{discountPercentage}%</div>
 			</div>
 			<p className="product-title">{title}</p>
@@ -34,9 +37,12 @@ export default function ProductCard({
 			</div>
 			{hovered ? (
 				<div className="product-add">
-					<button className="add-btn">Į krepšelį</button>
-					<Link to={`${id}`}>
-						<button>To product page</button>
+					<button className="product-btn">
+						<CgShoppingCart className="product-page--cart-icon" />
+						Add To Cart
+					</button>
+					<Link to={`${id}`} style={{ textDecoration: 'none' }}>
+						<button className="product-btn">Details...</button>
 					</Link>
 				</div>
 			) : null}

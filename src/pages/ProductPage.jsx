@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
+import { CgShoppingCart } from 'react-icons/cg';
 import '../Styles/ProductPage.css';
 
 function Product() {
@@ -67,20 +68,26 @@ function Product() {
 			</div>
 			<div className="product-page-info">
 				<h2>{product.title}</h2>
-				<p className="product-page--discounted">
-					{(
-						product.price -
-						(product.price * product.discountPercentage) / 100
-					).toFixed(2)}
-					€
-				</p>
-				<p>description: {product.description}</p>
-				<p>{product.price} €</p>
-				<button>Add To Cart</button>
+				<div className="product-page-pricebox">
+					<p className="product-page-original-price">{product.price} €</p>
+					<p className="product-page--discounted">
+						{(
+							product.price -
+							(product.price * product.discountPercentage) / 100
+						).toFixed(2)}
+						€
+					</p>
+				</div>
+				<p>{product.description}</p>
+				<button className="product-page--btn">
+					<CgShoppingCart className="product-page--cart-icon" />
+					Add To Cart
+				</button>
 				<button
 					onClick={() => {
 						navigate('/shop');
 					}}
+					className="product-page--btn"
 				>
 					Go Back
 				</button>

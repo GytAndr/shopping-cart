@@ -13,17 +13,18 @@
 .product-card {
 	height: 380px;
 	width: 220px;
-	/* CHANGE dimensitions if to much white space */
 	display: flex;
-	gap: 20px;
+	gap: 4px;
 	flex-direction: column;
-	/* justify-content: space-evenly; */
 	border: 1px solid gainsboro;
+	border-radius: 4px;
 }
 .product-thumbnail {
 	margin: 10px;
-	max-width: 200px;
-	max-height: 200px;
+	height: 190px;
+	width: 200px;
+	object-fit: scale-down;
+	border-radius: 6px;
 }
 .card-top {
 	display: flex;
@@ -53,6 +54,25 @@
 }
 .product-add {
 	display: flex;
+	flex-direction: column;
+	gap: 4px;
 	justify-content: center;
 	margin: 12px;
+}
+.product-btn {
+	color: white;
+	background-color: green;
+	outline: none;
+	border: none;
+	width: 200px;
+	padding: 5px 10px;
+	cursor: pointer;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	border-radius: 2px;
+	text-decoration: none;
+}
+.product-btn:hover {
+	background-color: hsl(120, 100%, 30%);
 }

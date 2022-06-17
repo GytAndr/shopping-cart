@@ -51,8 +51,45 @@
 	transform: scale(1.05);
 }
 .product-page-info {
+	height: 500px;
+	width: 500px;
 	display: flex;
+	justify-content: center;
+	gap: 12px;
 	flex-direction: column;
 	grid-column-start: 4;
 	grid-column-end: 6;
+}
+.product-page-original-price {
+	text-decoration: line-through;
+	color: gray;
+}
+.product-page--discounted {
+	font-size: 1.3em;
+	font-weight: bold;
+	color: red;
+}
+.product-page--btn {
+	color: white;
+	background-color: green;
+	outline: none;
+	border: none;
+	width: 200px;
+	padding: 5px 10px;
+	cursor: pointer;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	border-radius: 2px;
+}
+.product-page-pricebox {
+	display: flex;
+	gap: 12px;
+}
+.product-page--btn:hover {
+	background-color: hsl(120, 100%, 30%);
+}
+.product-page--cart-icon {
+	font-size: 1.2rem;
+	margin-right: 5px;
 }
