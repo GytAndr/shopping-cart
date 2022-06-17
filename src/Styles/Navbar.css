@@ -1,0 +1,9 @@
+nav a {
+	text-decoration: none;
+}
+nav {
+	padding: 12px;
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+}
