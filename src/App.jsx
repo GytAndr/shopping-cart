@@ -2,6 +2,7 @@ import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
 import Navbar from './Components/Navbar';
+import ErrorPage from './pages/ErrorPage';
 import ProductPage from './pages/ProductPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
@@ -33,6 +34,7 @@ function App() {
 						<Cart cartProducts={cartProducts} deleteCartItem={deleteCartItem} />
 					}
 				/>
+				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 		</BrowserRouter>
 	);

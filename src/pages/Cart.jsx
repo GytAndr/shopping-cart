@@ -9,27 +9,48 @@ const Cart = ({ cartProducts, deleteCartItem }) => {
 		.toFixed(2);
 	return (
 		<div className="cart">
-			<h3>Cart Page</h3>
 			<div className="cart-wrapper">
+				<div className="cart-labels">
+					<p>Product</p>
+					<p>Price</p>
+				</div>
 				{cartProducts.map((product, index) => {
 					return (
 						<div key={index} className="cart-card">
-							<img src={product.thumbnail} alt="" className="cart-thumb" />
-							<p>{product.title}</p>
-							<p>
+							<div className="cart-product-col">
+								<img src={product.thumbnail} alt="" className="cart-thumb" />
+								<p>{product.title}</p>
+							</div>
+							<p className="cart-price-col">
 								{product.price -
 									((product.price * product.discountPercentage) / 100).toFixed(
 										2
 									)}{' '}
 								€
 							</p>
-							<button onClick={() => deleteCartItem(index)}>remove</button>
+							<div className="cart-qty-col">
+								<button
+									className="product-page--btn"
+									onClick={() => deleteCartItem(index)}
+								>
+									Remove from Cart
+								</button>
+							</div>
 						</div>
 					);
 				})}
 			</div>
-			<p>total: {totalSum} €</p>
-			<button>Check Out</button>
+			<div className="cart-sidebar">
+				<p>
+					Cart total: <span id="cart-total-sum">{totalSum} €</span>
+				</p>
+				<p>Shipping &amp; taxes calculated at checkout</p>
+				<p>
+					<input type="checkbox"></input>I agree to{' '}
+					<span className="fake-link">Terms and Conditions</span>
+				</p>
+				<button className="product-page--btn">Check Out</button>
+			</div>
 		</div>
 	);
 };
