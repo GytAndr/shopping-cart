@@ -1,6 +1,7 @@
 import '../Styles/Cart.css';
 import { Link } from 'react-router-dom';
-const Cart = ({ cartProducts, deleteCartItem }) => {
+const Cart = ({ cartProducts, deleteCartItem, addToCart }) => {
+	// const totalProduct =
 	const totalSum = cartProducts
 		.reduce(
 			(total, item) =>
@@ -42,22 +43,30 @@ const Cart = ({ cartProducts, deleteCartItem }) => {
 								€
 							</p>
 							<div className="cart-qty-col">
-								<p>qty:{product.qty}</p>
 								<button
-									className="product-page--btn"
-									onClick={() => deleteCartItem(index)}
+									onClick={() => deleteCartItem(product)}
+									className="cart-qty--btn"
 								>
-									Remove from Cart
+									-
+								</button>
+								<p>{product.qty}</p>
+								<button
+									onClick={() => addToCart(product)}
+									className="cart-qty--btn"
+								>
+									+
 								</button>
 							</div>
 							<div className="cart-total-col">
 								<p>
-									{(product.price -
-										(
-											(product.price * product.discountPercentage) /
-											100
-										).toFixed(2)) *
-										product.qty}{' '}
+									{(
+										(product.price -
+											(
+												(product.price * product.discountPercentage) /
+												100
+											).toFixed(2)) *
+										product.qty
+									).toFixed(2)}{' '}
 									€
 								</p>
 							</div>

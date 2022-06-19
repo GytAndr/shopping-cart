@@ -19,18 +19,27 @@ function App() {
 			);
 		} else {
 			setCartProducts([...cartProducts, { ...item, qty: 1 }]);
-			// setCartProducts((prevProducts) => {
-			// 	return [...prevProducts, item];
-			// });
 		}
 	}
-	function deleteCartItem(itemIndex) {
-		let itemToDelete = cartProducts.splice(itemIndex, 1);
-		let arrayWithoutItem = cartProducts.filter(
-			(product) => product !== itemToDelete
-		);
-		setCartProducts(arrayWithoutItem);
+	function deleteCartItem(item) {
+		const itemExist = cartProducts.find((x) => x.id === item.id);
+		if (itemExist.qty === 1) {
+			setCartProducts(cartProducts.filter((x) => x.id !== item.id));
+		} else {
+			setCartProducts(
+				cartProducts.map((x) =>
+					x.id === item.id ? { ...itemExist, qty: itemExist.qty - 1 } : x
+				)
+			);
+		}
 	}
+	// function deleteCartItem(itemIndex) {
+	// 	let itemToDelete = cartProducts.splice(itemIndex, 1);
+	// 	let arrayWithoutItem = cartProducts.filter(
+	// 		(product) => product !== itemToDelete
+	// 	);
+	// 	setCartProducts(arrayWithoutItem);
+	// }
 	return (
 		<BrowserRouter>
 			<Navbar cartProducts={cartProducts} />
@@ -41,7 +50,11 @@ function App() {
 				<Route
 					path="/cart"
 					element={
-						<Cart cartProducts={cartProducts} deleteCartItem={deleteCartItem} />
+						<Cart
+							cartProducts={cartProducts}
+							deleteCartItem={deleteCartItem}
+							addToCart={addToCart}
+						/>
 					}
 				/>
 				<Route path="*" element={<ErrorPage />} />

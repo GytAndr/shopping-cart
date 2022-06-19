@@ -18,7 +18,7 @@ const Navbar = ({ cartProducts }) => {
 				<div className="nav-cartbox">
 					<p>Cart</p>
 					<FaShoppingCart id="nav-cart-icon" />
-					{cart ? <span id="nav-cart-number">{cart}</span> : null}
+					{cart == 0 ? null : <span id="nav-cart-number">{cart}</span>}
 				</div>
 			</Link>
 		</nav>
