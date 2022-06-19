@@ -2,14 +2,14 @@
 	height: 250px;
 	width: 220px;
 	display: grid;
-	grid-template-columns: repeat(3, 200px);
+	grid-template-columns: repeat(4, 200px);
 	justify-items: center;
 	align-items: center;
 	gap: 10px;
 }
 .cart-labels {
 	display: grid;
-	grid-template-columns: repeat(3, 200px);
+	grid-template-columns: repeat(4, 200px);
 	gap: 10px;
 	justify-items: center;
 }

@@ -10,9 +10,19 @@ import { useState } from 'react';
 function App() {
 	const [cartProducts, setCartProducts] = useState([]);
 	function addToCart(item) {
-		setCartProducts((prevProducts) => {
-			return [...prevProducts, item];
-		});
+		const itemExist = cartProducts.find((x) => x.id === item.id);
+		if (itemExist) {
+			setCartProducts(
+				cartProducts.map((x) =>
+					x.id === item.id ? { ...itemExist, qty: itemExist.qty + 1 } : x
+				)
+			);
+		} else {
+			setCartProducts([...cartProducts, { ...item, qty: 1 }]);
+			// setCartProducts((prevProducts) => {
+			// 	return [...prevProducts, item];
+			// });
+		}
 	}
 	function deleteCartItem(itemIndex) {
 		let itemToDelete = cartProducts.splice(itemIndex, 1);
@@ -23,7 +33,7 @@ function App() {
 	}
 	return (
 		<BrowserRouter>
-			<Navbar cart={cartProducts.length} />
+			<Navbar cartProducts={cartProducts} />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/shop" element={<Shop add={addToCart} />} />

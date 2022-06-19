@@ -24,6 +24,8 @@ const Cart = ({ cartProducts, deleteCartItem }) => {
 				<div className="cart-labels">
 					<p>PRODUCT</p>
 					<p>PRICE</p>
+					<p>QTY</p>
+					<p>TOTAL</p>
 				</div>
 				{cartProducts.map((product, index) => {
 					return (
@@ -40,12 +42,24 @@ const Cart = ({ cartProducts, deleteCartItem }) => {
 								€
 							</p>
 							<div className="cart-qty-col">
+								<p>qty:{product.qty}</p>
 								<button
 									className="product-page--btn"
 									onClick={() => deleteCartItem(index)}
 								>
 									Remove from Cart
 								</button>
+							</div>
+							<div className="cart-total-col">
+								<p>
+									{(product.price -
+										(
+											(product.price * product.discountPercentage) /
+											100
+										).toFixed(2)) *
+										product.qty}{' '}
+									€
+								</p>
 							</div>
 						</div>
 					);

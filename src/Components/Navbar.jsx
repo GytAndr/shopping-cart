@@ -2,7 +2,10 @@ import '../Styles/Navbar.css';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 
-const Navbar = ({ cart }) => {
+const Navbar = ({ cartProducts }) => {
+	const cart = cartProducts
+		.reduce((total, item) => item.qty + total, 0)
+		.toFixed(0);
 	return (
 		<nav>
 			<Link to="/">
