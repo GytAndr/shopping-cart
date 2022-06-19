@@ -1,5 +1,12 @@
 import '../Styles/Cart.css';
 const Cart = ({ cartProducts }) => {
+	const totalSum = cartProducts
+		.reduce(
+			(total, item) =>
+				item.price - (item.price * item.discountPercentage) / 100 + total,
+			0
+		)
+		.toFixed(2);
 	return (
 		<div className="cart">
 			<h3>Cart Page</h3>
@@ -21,6 +28,7 @@ const Cart = ({ cartProducts }) => {
 					);
 				})}
 			</div>
+			<p>total: {totalSum} €</p>
 			<button>Check Out</button>
 		</div>
 	);
