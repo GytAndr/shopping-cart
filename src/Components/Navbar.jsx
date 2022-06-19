@@ -12,12 +12,12 @@ const Navbar = ({ cart }) => {
 				<a href="/shop">Shop</a>
 			</Link>
 			<Link to="/cart">
-				<a href="/cart">Cart</a>
+				<div className="nav-cartbox">
+					<a href="/cart">Cart</a>
+					<FaShoppingCart id="nav-cart-icon" />
+					{cart ? <span id="nav-cart-number">{cart}</span> : null}
+				</div>
 			</Link>
-			<div className="nav-cartbox">
-				<FaShoppingCart id="nav-cart-icon" />
-				<span id="nav-cart-number">{cart}</span>
-			</div>
 		</nav>
 	);
 };
