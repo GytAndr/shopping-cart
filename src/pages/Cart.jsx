@@ -1,4 +1,5 @@
 import '../Styles/Cart.css';
+import { Link } from 'react-router-dom';
 const Cart = ({ cartProducts, deleteCartItem }) => {
 	const totalSum = cartProducts
 		.reduce(
@@ -7,12 +8,22 @@ const Cart = ({ cartProducts, deleteCartItem }) => {
 			0
 		)
 		.toFixed(2);
+	if (!cartProducts.length) {
+		return (
+			<div className="cart-empty">
+				<p>Cart is empty... </p>
+				<Link to="/shop">
+					<button className="product-page--btn">Continue Shopping</button>
+				</Link>
+			</div>
+		);
+	}
 	return (
 		<div className="cart">
 			<div className="cart-wrapper">
 				<div className="cart-labels">
-					<p>Product</p>
-					<p>Price</p>
+					<p>PRODUCT</p>
+					<p>PRICE</p>
 				</div>
 				{cartProducts.map((product, index) => {
 					return (
