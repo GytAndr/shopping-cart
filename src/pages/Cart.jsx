@@ -1,13 +1,27 @@
+import '../Styles/Cart.css';
 const Cart = ({ cartProducts }) => {
 	return (
-		<div className="cart-wrapper">
-			<div className="cart--product-card">
-				<h3>Cart Page</h3>
+		<div className="cart">
+			<h3>Cart Page</h3>
+			<div className="cart-wrapper">
 				{cartProducts.map((product, index) => {
-					return <p>{product.title}</p>;
+					return (
+						<div key={index} className="cart-card">
+							<img src={product.thumbnail} alt="" className="cart-thumb" />
+							<p>{product.title}</p>
+							<p>
+								{product.price -
+									((product.price * product.discountPercentage) / 100).toFixed(
+										2
+									)}{' '}
+								€
+							</p>
+							<button>remove</button>
+						</div>
+					);
 				})}
-				<button>Check Out</button>
 			</div>
+			<button>Check Out</button>
 		</div>
 	);
 };
