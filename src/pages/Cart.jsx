@@ -5,7 +5,9 @@ const Cart = ({ cartProducts, deleteCartItem, addToCart }) => {
 	const totalSum = cartProducts
 		.reduce(
 			(total, item) =>
-				item.price - (item.price * item.discountPercentage) / 100 + total,
+				(item.price - (item.price * item.discountPercentage) / 100).toFixed(2) *
+					item.qty +
+				total,
 			0
 		)
 		.toFixed(2);
@@ -29,19 +31,21 @@ const Cart = ({ cartProducts, deleteCartItem, addToCart }) => {
 					<p>TOTAL</p>
 				</div>
 				{cartProducts.map((product, index) => {
+					const productPrice =
+						product.price -
+						((product.price * product.discountPercentage) / 100).toFixed(2);
+					const totalProduct = (
+						(product.price -
+							((product.price * product.discountPercentage) / 100).toFixed(2)) *
+						product.qty
+					).toFixed(2);
 					return (
 						<div key={index} className="cart-card">
 							<div className="cart-product-col">
 								<img src={product.thumbnail} alt="" className="cart-thumb" />
 								<p>{product.title}</p>
 							</div>
-							<p className="cart-price-col">
-								{product.price -
-									((product.price * product.discountPercentage) / 100).toFixed(
-										2
-									)}{' '}
-								€
-							</p>
+							<p className="cart-price-col">{productPrice} €</p>
 							<div className="cart-qty-col">
 								<button
 									onClick={() => deleteCartItem(product)}
@@ -58,17 +62,7 @@ const Cart = ({ cartProducts, deleteCartItem, addToCart }) => {
 								</button>
 							</div>
 							<div className="cart-total-col">
-								<p>
-									{(
-										(product.price -
-											(
-												(product.price * product.discountPercentage) /
-												100
-											).toFixed(2)) *
-										product.qty
-									).toFixed(2)}{' '}
-									€
-								</p>
+								<p>{totalProduct} €</p>
 							</div>
 						</div>
 					);

@@ -6,6 +6,7 @@
 	justify-items: center;
 	align-items: center;
 	gap: 10px;
+	border: 1px solid red;
 }
 .cart-labels {
 	display: grid;
@@ -16,8 +17,6 @@
 .cart {
 	width: 80%;
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	margin: auto;
 	position: relative;
 }
@@ -30,6 +29,7 @@
 .cart-product-col {
 	grid-column-start: 1;
 	grid-column-end: 2;
+	text-align: center;
 }
 .cart-price-col {
 	grid-column-start: 2;
@@ -45,12 +45,11 @@
 .cart-sidebar {
 	height: 40%;
 	width: 25%;
-	position: fixed;
+	position: sticky;
 	right: 0;
-	top: 45px;
+	top: 0;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	gap: 25px;
 }
 .fake-link {
