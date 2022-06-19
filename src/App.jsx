@@ -20,7 +20,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/shop" element={<Shop add={addToCart} />} />
 				<Route path="/shop/:id" element={<ProductPage add={addToCart} />} />
-				<Route path="/cart" element={<Cart />} />
+				<Route path="/cart" element={<Cart cartProducts={cartProducts} />} />
 			</Routes>
 		</BrowserRouter>
 	);
