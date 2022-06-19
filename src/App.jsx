@@ -33,13 +33,7 @@ function App() {
 			);
 		}
 	}
-	// function deleteCartItem(itemIndex) {
-	// 	let itemToDelete = cartProducts.splice(itemIndex, 1);
-	// 	let arrayWithoutItem = cartProducts.filter(
-	// 		(product) => product !== itemToDelete
-	// 	);
-	// 	setCartProducts(arrayWithoutItem);
-	// }
+
 	return (
 		<BrowserRouter>
 			<Navbar cartProducts={cartProducts} />

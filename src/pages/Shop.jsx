@@ -4,6 +4,28 @@ import '../Styles/Shop.css';
 const Shop = ({ add }) => {
 	const [products, setProducts] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const categories = [
+		'smartphones',
+		'laptops',
+		'fragrances',
+		'skincare',
+		'groceries',
+		'home-decoration',
+		'furniture',
+		'tops',
+		'womens-dresses',
+		'womens-shoes',
+		'mens-shirts',
+		'mens-shoes',
+		'mens-watches',
+		'womens-watches',
+		'womens-bags',
+		'womens-jewellery',
+		'sunglasses',
+		'automotive',
+		'motorcycle',
+		'lighting',
+	];
 
 	useEffect(() => {
 		async function FechProductList() {
@@ -24,10 +46,21 @@ const Shop = ({ add }) => {
 	}
 	//else map trough array and display products.
 	return (
-		<div className="products-wrapper">
-			{products.map((product) => {
-				return <ProductCard data={product} key={product.id} add={add} />;
-			})}
+		<div className="shop-container">
+			<div className="shop-categories">
+				{categories.map((category, index) => {
+					return (
+						<div key={index} className="category">
+							{category}
+						</div>
+					);
+				})}
+			</div>
+			<div className="products-wrapper">
+				{products.map((product) => {
+					return <ProductCard data={product} key={product.id} add={add} />;
+				})}
+			</div>
 		</div>
 	);
 };
