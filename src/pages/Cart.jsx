@@ -1,5 +1,5 @@
 import '../Styles/Cart.css';
-const Cart = ({ cartProducts }) => {
+const Cart = ({ cartProducts, deleteCartItem }) => {
 	const totalSum = cartProducts
 		.reduce(
 			(total, item) =>
@@ -23,7 +23,7 @@ const Cart = ({ cartProducts }) => {
 									)}{' '}
 								€
 							</p>
-							<button>remove</button>
+							<button onClick={() => deleteCartItem(index)}>remove</button>
 						</div>
 					);
 				})}

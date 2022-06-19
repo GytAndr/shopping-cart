@@ -6,14 +6,14 @@ const Navbar = ({ cart }) => {
 	return (
 		<nav>
 			<Link to="/">
-				<a href="/">Home</a>
+				<p>Home</p>
 			</Link>
 			<Link to="/shop">
-				<a href="/shop">Shop</a>
+				<p>Shop</p>
 			</Link>
 			<Link to="/cart">
 				<div className="nav-cartbox">
-					<a href="/cart">Cart</a>
+					<p>Cart</p>
 					<FaShoppingCart id="nav-cart-icon" />
 					{cart ? <span id="nav-cart-number">{cart}</span> : null}
 				</div>

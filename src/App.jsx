@@ -13,6 +13,13 @@ function App() {
 			return [...prevProducts, item];
 		});
 	}
+	function deleteCartItem(itemIndex) {
+		let itemToDelete = cartProducts.splice(itemIndex, 1);
+		let arrayWithoutItem = cartProducts.filter(
+			(product) => product !== itemToDelete
+		);
+		setCartProducts(arrayWithoutItem);
+	}
 	return (
 		<BrowserRouter>
 			<Navbar cart={cartProducts.length} />
@@ -20,7 +27,12 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/shop" element={<Shop add={addToCart} />} />
 				<Route path="/shop/:id" element={<ProductPage add={addToCart} />} />
-				<Route path="/cart" element={<Cart cartProducts={cartProducts} />} />
+				<Route
+					path="/cart"
+					element={
+						<Cart cartProducts={cartProducts} deleteCartItem={deleteCartItem} />
+					}
+				/>
 			</Routes>
 		</BrowserRouter>
 	);
