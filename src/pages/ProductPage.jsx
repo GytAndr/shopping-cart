@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
 import { CgShoppingCart } from 'react-icons/cg';
 import '../Styles/ProductPage.css';
@@ -85,7 +85,7 @@ function Product({ add }) {
 				</button>
 				<button
 					onClick={() => {
-						navigate('/shop');
+						navigate(-1);
 					}}
 					className="product-page--btn"
 				>

@@ -15,7 +15,7 @@ const Cart = ({ cartProducts, deleteCartItem, addToCart }) => {
 		return (
 			<div className="cart-empty">
 				<p>Cart is empty... </p>
-				<Link to="/shop">
+				<Link to="/shopping-cart/shop">
 					<button className="product-page--btn">Continue Shopping</button>
 				</Link>
 			</div>

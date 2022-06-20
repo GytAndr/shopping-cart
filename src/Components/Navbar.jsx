@@ -8,13 +8,13 @@ const Navbar = ({ cartProducts }) => {
 		.toFixed(0);
 	return (
 		<nav>
-			<Link to="/home">
+			<Link to="shopping-cart/">
 				<p>HOME</p>
 			</Link>
-			<Link to="/shop">
+			<Link to="shopping-cart/shop">
 				<p>SHOP</p>
 			</Link>
-			<Link to="/cart">
+			<Link to="shopping-cart/cart">
 				<div className="nav-cartbox">
 					<p>CART</p>
 					<FaShoppingCart id="nav-cart-icon" />

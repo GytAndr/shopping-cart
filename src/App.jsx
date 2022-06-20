@@ -38,11 +38,14 @@ function App() {
 		<BrowserRouter>
 			<Navbar cartProducts={cartProducts} />
 			<Routes>
-				<Route path="/home" element={<Home />} />
-				<Route path="/shop" element={<Shop add={addToCart} />} />
-				<Route path="/shop/:id" element={<ProductPage add={addToCart} />} />
+				<Route path="shopping-cart/" element={<Home />} />
+				<Route path="shopping-cart/shop" element={<Shop add={addToCart} />} />
 				<Route
-					path="/cart"
+					path="shopping-cart/shop/:id"
+					element={<ProductPage add={addToCart} />}
+				/>
+				<Route
+					path="shopping-cart/cart"
 					element={
 						<Cart
 							cartProducts={cartProducts}
