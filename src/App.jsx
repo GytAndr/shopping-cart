@@ -38,7 +38,7 @@ function App() {
 		<BrowserRouter>
 			<Navbar cartProducts={cartProducts} />
 			<Routes>
-				<Route path="/" element={<Home />} />
+				<Route path="/home" element={<Home />} />
 				<Route path="/shop" element={<Shop add={addToCart} />} />
 				<Route path="/shop/:id" element={<ProductPage add={addToCart} />} />
 				<Route
