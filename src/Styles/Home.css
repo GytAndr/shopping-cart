@@ -1,3 +1,14 @@
-.home-images {
+.home-slider-track {
 	display: flex;
+}
+.home-slide img {
+	object-fit: cover;
+	border-radius: 6px;
+	margin: 6px;
+}
+.home {
+	display: grid;
+	grid-template-columns: auto;
+	justify-content: center;
+	align-items: center;
 }

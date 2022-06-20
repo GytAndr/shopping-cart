@@ -9,14 +9,14 @@ const Navbar = ({ cartProducts }) => {
 	return (
 		<nav>
 			<Link to="/">
-				<p>Home</p>
+				<p>HOME</p>
 			</Link>
 			<Link to="/shop">
-				<p>Shop</p>
+				<p>SHOP</p>
 			</Link>
 			<Link to="/cart">
 				<div className="nav-cartbox">
-					<p>Cart</p>
+					<p>CART</p>
 					<FaShoppingCart id="nav-cart-icon" />
 					{cart == 0 ? null : <span id="nav-cart-number">{cart}</span>}
 				</div>

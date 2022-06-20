@@ -34,26 +34,40 @@ export default function Home() {
 	}
 	return (
 		<div className="home">
-			<h3>UP TO 17% OFF</h3>
-			<h3>FOR A WEEK</h3>
-			<div className="home-images">
+			<div className="home-slider-track">
 				{smartphones.map((product, index) => {
-					return <img key={index} src={product.thumbnail} alt="" />;
+					return (
+						<div className="home-slide" key={index}>
+							<img src={product.thumbnail} alt="" height="250" width="250" />
+						</div>
+					);
 				})}
 			</div>
-			<div className="home-images">
+			<div className="home-slider-track">
 				{laptops.map((product, index) => {
-					return <img key={index} src={product.thumbnail} alt="" />;
+					return (
+						<div className="home-slide" key={index}>
+							<img src={product.thumbnail} alt="" height="250" width="250" />
+						</div>
+					);
 				})}
 			</div>
-			<div className="home-images">
+			<div className="home-slider-track">
 				{mensWatches.map((product, index) => {
-					return <img key={index} src={product.thumbnail} alt="" />;
+					return (
+						<div className="home-slide" key={index}>
+							<img src={product.thumbnail} alt="" height="250" width="250" />
+						</div>
+					);
 				})}
 			</div>
-			<div className="home-images">
+			<div className="home-slider-track">
 				{sunglasses.map((product, index) => {
-					return <img key={index} src={product.thumbnail} alt="" />;
+					return (
+						<div className="home-slide" key={index}>
+							<img src={product.thumbnail} alt="" height="250" width="250" />
+						</div>
+					);
 				})}
 			</div>
 		</div>
