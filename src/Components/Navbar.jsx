@@ -8,12 +8,8 @@ const Navbar = ({ cartProducts }) => {
 		.toFixed(0);
 	return (
 		<nav>
-			<Link to="shopping-cart/">
-				<p>HOME</p>
-			</Link>
-			<Link to="shopping-cart/shop">
-				<p>SHOP</p>
-			</Link>
+			<Link to="shopping-cart/">HOME</Link>
+			<Link to="shopping-cart/shop">SHOP</Link>
 			<Link to="shopping-cart/cart">
 				<div className="nav-cartbox">
 					<p>CART</p>
