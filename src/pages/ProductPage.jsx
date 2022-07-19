@@ -87,7 +87,7 @@ function Product({ add }) {
 					onClick={() => {
 						navigate(-1);
 					}}
-					className="product-page--btn"
+					className="btn btn-primary"
 				>
 					Go Back
 				</button>
