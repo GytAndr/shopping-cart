@@ -1,4 +1,3 @@
-// import '../Styles/Navbar.css';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 
@@ -15,7 +14,7 @@ const Navbar = ({ cartProducts }) => {
 				data-bs-toggle="collapse"
 				data-bs-target="#navbarNav"
 			>
-				<span class="navbar-toggler-icon"></span>
+				<span className="navbar-toggler-icon"></span>
 			</button>
 			<div
 				className="collapse navbar-collapse justify-content-end me-3"
